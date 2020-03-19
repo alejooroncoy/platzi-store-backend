@@ -1,0 +1,33 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js: 
+  - '12'
+
+git:
+  depth: 3
+
+script:
+  -yarn test
+
+notifications:
+  slack: alejo1403:cOlYqpCmXvPAEzIhazGXkeNF
+  email:
+    recipients:
+      -'adoa2705@gmail.com'
+    on_success: always
+    on_failure: always
+
+deploy: 
+    provide: heroku
+    skip-cleanup: true
+    keep-history: true
+    api_key: b9c1d6b9-324f-4b08-8cb7-464f6103bc9b
+    app: platzi-store-alejo-backend
+    on:
+      repo: alejooroncoy/platzi-store-backend
+      
